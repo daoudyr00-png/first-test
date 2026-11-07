@@ -67,7 +67,7 @@ export function FilterSelect({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`h-9 w-full appearance-none rounded-md border bg-paper pr-8 pl-3 text-[13px] transition-colors focus:border-wine focus:outline-none sm:w-auto ${
+        className={`h-9 w-full appearance-none truncate rounded-md border bg-paper pr-8 pl-3 text-[13px] transition-colors focus:border-wine focus:outline-none sm:w-auto sm:max-w-52 ${
           value ? "border-wine-tint text-wine" : "border-line text-ink-soft"
         }`}
       >

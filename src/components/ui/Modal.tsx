@@ -42,15 +42,15 @@ export function Modal({
       }
     };
     document.addEventListener("keydown", onKey);
-    // Focus first form control
-    const t = setTimeout(() => {
-      const el = panelRef.current?.querySelector<HTMLElement>(
-        "input:not([type=hidden]), textarea, select, button[data-autofocus]",
-      );
-      (el ?? panelRef.current)?.focus();
-    }, 20);
+    // Focus the first form control as soon as the panel is mounted (the portal
+    // commits with this effect). Never deferred: a delayed focus could steal
+    // the caret from a field the user has already clicked into.
+    const panel = panelRef.current;
+    if (panel && !panel.contains(document.activeElement)) {
+      const el = panel.querySelector<HTMLElement>("input:not([type=hidden]), textarea, select, button[data-autofocus]");
+      (el ?? panel).focus();
+    }
     return () => {
-      clearTimeout(t);
       stack.splice(stack.indexOf(token), 1);
       document.body.style.overflow = prevOverflow;
       document.removeEventListener("keydown", onKey);

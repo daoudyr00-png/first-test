@@ -93,7 +93,7 @@ export default function DashboardPage() {
           <Link key={s.label} href={s.href} className="group rounded-xl border border-line bg-paper p-4 shadow-card transition-colors hover:border-line-strong sm:p-5">
             <div className="flex items-center justify-between">
               <span className="text-[12.5px] font-medium text-muted">{s.label}</span>
-              <s.icon size={16} className="text-faint transition-colors group-hover:text-wine" />
+              <s.icon size={16} className="hidden shrink-0 text-faint transition-colors group-hover:text-wine sm:block" />
             </div>
             <div className="num mt-3 font-display text-[34px] leading-none text-ink">{s.value}</div>
             <div className="mt-2 text-xs text-faint">{s.sub}</div>
@@ -127,7 +127,7 @@ export default function DashboardPage() {
         </Card>
       ) : (
         <>
-          <div className="mt-6 grid gap-6 lg:grid-cols-[1.35fr_1fr]">
+          <div className="mt-6 grid gap-6 lg:grid-cols-[1.35fr_1fr] lg:items-start">
             <Card>
               <CardHeader
                 title="Best opportunities"

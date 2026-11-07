@@ -18,7 +18,7 @@ export function StackedBar({ segments }: { segments: Segment[] }) {
               <div key={s.key} style={{ width: `${(s.value / total) * 100}%`, background: s.color }} className="h-full border-r-2 border-paper last:border-0" title={`${s.label}: ${s.value}`} />
             ))}
       </div>
-      <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-3">
+      <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2">
         {segments.map((s) => (
           <li key={s.key} className="flex items-center gap-2 text-[13px]">
             <span className="h-2.5 w-2.5 shrink-0 rounded-[3px]" style={{ background: s.color }} />
