@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+
+  /* Surfaces */
+  --color-paper: #ffffff;
+  --color-ivory: #faf7f2;
+  --color-ivory-deep: #f3eee5;
+  --color-line: #e7e0d5;
+  --color-line-strong: #d6ccbd;
+
+  /* Ink */
+  --color-ink: #1e1c1a;
+  --color-ink-soft: #3a3632;
+  --color-muted: #6f675e;
+  --color-faint: #9a9187;
+
+  /* Accent: burgundy */
+  --color-wine: #7b2337;
+  --color-wine-deep: #5e1828;
+  --color-wine-soft: #f5e9eb;
+  --color-wine-tint: #e9cfd5;
+
+  /* Supporting semantic tones (muted, earthy) */
+  --color-sage: #4f6b52;
+  --color-sage-soft: #e8efe6;
+  --color-ochre: #9a6a1c;
+  --color-ochre-soft: #f6ecd9;
+  --color-slate: #4b5563;
+  --color-slate-soft: #eceef1;
+
+  --shadow-card: 0 1px 0 rgb(30 28 26 / 0.03), 0 1px 3px rgb(30 28 26 / 0.04);
+  --shadow-pop: 0 12px 40px -12px rgb(30 28 26 / 0.25), 0 2px 6px rgb(30 28 26 / 0.06);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background: var(--color-wine-tint);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-wine);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .field-input {
+    @apply w-full rounded-md border border-line bg-paper px-3 py-2 text-sm text-ink placeholder:text-faint
+      transition-colors focus:border-wine focus:outline-none focus:ring-2 focus:ring-wine/15;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+}
